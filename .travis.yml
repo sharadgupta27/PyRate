@@ -28,11 +28,8 @@ before_install:
   - pip install codecov
 
 install:
-  - pip install -r requirements-test.txt
-  - pip install -r requirements-dev.txt
+  - pip install -r requirements.txt
   - python setup.py install
-  - export PYRATEPATH=$(pwd)
-  - export PYTHONPATH=$PYRATEPATH:$PYTHONPATH
   - chmod 444 tests/test_data/small_test/tif/geo_070709-070813_unw.tif  # makes the file readonly, used in a test
 
 # command to run tests, e.g. python setup.py test
