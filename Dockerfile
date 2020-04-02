@@ -33,8 +33,11 @@ RUN apt-get install jasper -y
 RUN wget https://download.osgeo.org/gdal/3.0.2/gdal-3.0.2.tar.gz && tar -zxf gdal-3.0.2.tar.gz && cd gdal-3.0.2 && ./configure && nproc | xargs -I % make -j% && make install
 #
 ## install open-mpi 2.1.6
-RUN wget https://download.open-mpi.org/release/open-mpi/v2.1/openmpi-2.1.6.tar.gz && tar -zxf openmpi-2.1.6.tar.gz && cd openmpi-2.1.6 && ./configure && nproc | xargs -I % make -j% && make install
-#
+#RUN wget https://download.open-mpi.org/release/open-mpi/v2.1/openmpi-2.1.6.tar.gz && tar -zxf openmpi-2.1.6.tar.gz && cd openmpi-2.1.6 && ./configure && nproc | xargs -I % make -j% && make install
+RUN apt install libopenmpi-dev -y
+#RUN apt-get install -y openmpi-bin
+#RUN ln -s /usr/lib/libmpi_f77.so.0 /usr/lib/libmpi_f77.so.1
+#RUN ln -s /usr/lib/libmpi.so.0 /usr/lib/libmpi.so.1
 ENV CPLUS_INCLUDE_PATH=/usr/include/gdal
 ENV C_INCLUDE_PATH=/usr/include/gdal
 ENV LC_ALL=C.UTF-8
