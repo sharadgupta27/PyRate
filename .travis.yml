@@ -20,13 +20,9 @@ matrix:
     - python: 3.6
     - python: 3.7
 
-# allow gui output
-services:
-  - xvfb
-
 before_install:
   - export DEBIAN_FRONTEND=noninteractive
-  - sudo apt install g++ pkg-config libopenmpi-dev sqlite3 wget libssl-dev zlib1g-dev libncurses5-dev libncursesw5-dev libreadline-dev libsqlite3-dev libgdbm-dev libdb5.3-dev libbz2-dev libexpat1-dev liblzma-dev libffi-dev -y
+  - sudo apt install g++ pkg-config build-essential libopenmpi-dev sqlite3 wget libssl-dev zlib1g-dev libncurses5-dev libncursesw5-dev libreadline-dev libsqlite3-dev libgdbm-dev libdb5.3-dev libbz2-dev libexpat1-dev liblzma-dev libffi-dev -y
   - sudo apt-get install make -y
   - sudo apt-get install jasper -y
   - cd $HOME && wget https://download.osgeo.org/proj/proj-6.2.1.tar.gz && tar -zxf proj-6.2.1.tar.gz && cd proj-6.2.1 && ./configure && nproc | xargs -I % make -j% && sudo make install
