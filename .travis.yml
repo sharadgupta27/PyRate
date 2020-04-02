@@ -14,26 +14,26 @@ python:
   - "3.6"
   - "3.7"
 
-before_install:
-  - export DEBIAN_FRONTEND=noninteractive
-  - sudo apt install g++ pkg-config libopenmpi-dev sqlite3 wget libssl-dev zlib1g-dev libncurses5-dev libncursesw5-dev libreadline-dev libsqlite3-dev libgdbm-dev libdb5.3-dev libbz2-dev libexpat1-dev liblzma-dev libffi-dev -y
-  - sudo apt-get install make -y
-  - sudo apt-get install jasper -y
-  - cd $HOME && wget https://download.osgeo.org/proj/proj-6.2.1.tar.gz && tar -zxf proj-6.2.1.tar.gz && cd proj-6.2.1 && ./configure && nproc | xargs -I % make -j% && sudo make install
-  - cd $HOME && wget https://download.osgeo.org/gdal/3.0.2/gdal-3.0.2.tar.gz && tar -zxf gdal-3.0.2.tar.gz && cd gdal-3.0.2 && ./configure && nproc | xargs -I % make -j% && sudo make install
-  - export CPLUS_INCLUDE_PATH=/usr/include/gdal
-  - export C_INCLUDE_PATH=/usr/include/gdal
-  - export LC_ALL=C.UTF-8
-  - export LANG=C.UTF-8
-
-install:
-  - sudo sh -c "echo '/usr/local/lib' >> /etc/ld.so.conf"
-  - sudo ldconfig
-  - cd /home/travis/build/GeoscienceAustralia/PyRate
-  - python setup.py -q install
-  - pip uninstall GDAL -y
-  - pip install GDAL==$(gdal-config --version)
-  - chmod 444 tests/test_data/small_test/tif/geo_070709-070813_unw.tif  # makes the file readonly, used in a test
+#before_install:
+#  - export DEBIAN_FRONTEND=noninteractive
+#  - sudo apt install g++ pkg-config libopenmpi-dev sqlite3 wget libssl-dev zlib1g-dev libncurses5-dev libncursesw5-dev libreadline-dev libsqlite3-dev libgdbm-dev libdb5.3-dev libbz2-dev libexpat1-dev liblzma-dev libffi-dev -y
+#  - sudo apt-get install make -y
+#  - sudo apt-get install jasper -y
+#  - cd $HOME && wget https://download.osgeo.org/proj/proj-6.2.1.tar.gz && tar -zxf proj-6.2.1.tar.gz && cd proj-6.2.1 && ./configure && nproc | xargs -I % make -j% && sudo make install
+#  - cd $HOME && wget https://download.osgeo.org/gdal/3.0.2/gdal-3.0.2.tar.gz && tar -zxf gdal-3.0.2.tar.gz && cd gdal-3.0.2 && ./configure && nproc | xargs -I % make -j% && sudo make install
+#  - export CPLUS_INCLUDE_PATH=/usr/include/gdal
+#  - export C_INCLUDE_PATH=/usr/include/gdal
+#  - export LC_ALL=C.UTF-8
+#  - export LANG=C.UTF-8
+#
+#install:
+#  - sudo sh -c "echo '/usr/local/lib' >> /etc/ld.so.conf"
+#  - sudo ldconfig
+#  - cd /home/travis/build/GeoscienceAustralia/PyRate
+#  - python setup.py -q install
+#  - pip uninstall GDAL -y
+#  - pip install GDAL==$(gdal-config --version)
+#  - chmod 444 tests/test_data/small_test/tif/geo_070709-070813_unw.tif  # makes the file readonly, used in a test
 
 # command to run tests
 script:
