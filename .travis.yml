@@ -37,6 +37,7 @@ install:
 
 # command to run tests
 script:
+  - cd /home/travis/build/GeoscienceAustralia/PyRate
   - pytest tests/
 
 after_success:
@@ -47,7 +48,7 @@ jobs:
     - stage: deploy
       python: 3.6
       script:
-        - pip install numpy==1.16.4
+        - pip install numpy==1.17.4
         - cd docs && make html
       deploy:
         provider: pages
