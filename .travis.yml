@@ -31,9 +31,8 @@ python:
 
 
 install:
-  - echo $(ls)
-  - echo $(pwd)
-  - python setup.py -q install
+  - pip install -U setuptools
+  - python setupasdasd.py -q install
   - pip uninstall GDAL -y
   - pip install GDAL==$(gdal-config --version)
   - chmod 444 tests/test_data/small_test/tif/geo_070709-070813_unw.tif  # makes the file readonly, used in a test
