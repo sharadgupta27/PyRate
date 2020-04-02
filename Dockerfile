@@ -1,7 +1,9 @@
 FROM ubuntu:bionic
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt update && apt upgrade -y
-RUN apt install libopenmpi-dev  sqlite3 gcc wget make libssl-dev zlib1g-dev libncurses5-dev libncursesw5-dev libreadline-dev libsqlite3-dev libgdbm-dev libdb5.3-dev libbz2-dev libexpat1-dev liblzma-dev libffi-dev -y
+RUN apt install g++ pkg-config libopenmpi-dev sqlite3 wget libssl-dev zlib1g-dev libncurses5-dev libncursesw5-dev libreadline-dev libsqlite3-dev libgdbm-dev libdb5.3-dev libbz2-dev libexpat1-dev liblzma-dev libffi-dev -y
+RUN apt-get install make -y
+#apt-get install --reinstall make
 
 # install Python 3.7.4
 RUN wget https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tgz && \
