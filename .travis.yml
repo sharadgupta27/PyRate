@@ -11,28 +11,28 @@ dist: bionic # Ubuntu 18.04
 language: python
 
 python:
-  - "3.6"
+#  - "3.6"
   - "3.7"
 
 
-#before_install:
-#  - export DEBIAN_FRONTEND=noninteractive
-#  - sudo apt update && sudo apt upgrade -y
-#  - sudo apt install jasper sqlite3 pkg-config gcc wget build-essential libssl-dev zlib1g-dev libncurses5-dev libncursesw5-dev libreadline-dev libsqlite3-dev libgdbm-dev libdb5.3-dev libbz2-dev libexpat1-dev liblzma-dev libffi-dev -y
-#  - wget https://download.osgeo.org/proj/proj-6.2.1.tar.gz && tar -zxf proj-6.2.1.tar.gz && cd proj-6.2.1 && ./configure && nproc | xargs -I % make -j% && sudo make install
-#  - wget https://download.osgeo.org/gdal/3.0.2/gdal-3.0.2.tar.gz && tar -zxf gdal-3.0.2.tar.gz && cd gdal-3.0.2 && ./configure && nproc | xargs -I % make -j% && sudo make install
-#  - wget https://download.open-mpi.org/release/open-mpi/v2.1/openmpi-2.1.6.tar.gz && tar -zxf openmpi-2.1.6.tar.gz && cd openmpi-2.1.6 && ./configure && nproc | xargs -I % make -j% && sudo make install
-#  - export CPLUS_INCLUDE_PATH=/usr/include/gdal
-#  - export C_INCLUDE_PATH=/usr/include/gdal
-#  - export LC_ALL=C.UTF-8
-#  - export LANG=C.UTF-8
-#  - sudo sh -c "echo '/usr/local/lib' >> /etc/ld.so.conf"
-#  - sudo ldconfig
+before_install:
+  - export DEBIAN_FRONTEND=noninteractive
+  - sudo apt update && sudo apt upgrade -y
+  - sudo apt install jasper sqlite3 pkg-config gcc wget build-essential libssl-dev zlib1g-dev libncurses5-dev libncursesw5-dev libreadline-dev libsqlite3-dev libgdbm-dev libdb5.3-dev libbz2-dev libexpat1-dev liblzma-dev libffi-dev -y
+  - wget https://download.osgeo.org/proj/proj-6.2.1.tar.gz && tar -zxf proj-6.2.1.tar.gz && cd proj-6.2.1 && ./configure && nproc | xargs -I % make -j% && sudo make install
+  - wget https://download.osgeo.org/gdal/3.0.2/gdal-3.0.2.tar.gz && tar -zxf gdal-3.0.2.tar.gz && cd gdal-3.0.2 && ./configure && nproc | xargs -I % make -j% && sudo make install
+  - wget https://download.open-mpi.org/release/open-mpi/v2.1/openmpi-2.1.6.tar.gz && tar -zxf openmpi-2.1.6.tar.gz && cd openmpi-2.1.6 && ./configure && nproc | xargs -I % make -j% && sudo make install
+  - export CPLUS_INCLUDE_PATH=/usr/include/gdal
+  - export C_INCLUDE_PATH=/usr/include/gdal
+  - export LC_ALL=C.UTF-8
+  - export LANG=C.UTF-8
+  - sudo sh -c "echo '/usr/local/lib' >> /etc/ld.so.conf"
+  - sudo ldconfig
 
 
 install:
-  - echo $(ls)
-  - echo $(pwd)
+  - sudo sh -c "echo '/usr/local/lib' >> /etc/ld.so.conf"
+  - sudo ldconfig
   - pip install -U setuptools
   - python setup.py -q install
   - pip uninstall GDAL -y
@@ -76,6 +76,3 @@ notifications:
 cache:
   directories:
     - $HOME/.cache/pip
-    - gdal-3.0.2
-    - openmpi-2.1.6
-    - proj-6.2.1
