@@ -20,8 +20,8 @@ before_install:
   - sudo apt-get install jasper -y
 #  - cd $HOME && wget https://download.osgeo.org/proj/proj-6.2.1.tar.gz && tar -zxf proj-6.2.1.tar.gz && cd proj-6.2.1 && ./configure && nproc | xargs -I % make -j% && sudo make install
 #  - cd $HOME && wget https://download.osgeo.org/gdal/3.0.2/gdal-3.0.2.tar.gz && tar -zxf gdal-3.0.2.tar.gz && cd gdal-3.0.2 && ./configure && nproc | xargs -I % make -j% && sudo make install
-  - cd $HOME cd proj-6.2.1 && ./configure && make -j4 && sudo make install
-  - cd $HOME cd gdal-3.0.2 && ./configure && make -j4 && sudo make install
+  - cd $HOME && cd proj-6.2.1 && ./configure && make -j4 && sudo make install
+  - cd $HOME && cd gdal-3.0.2 && ./configure && make -j4 && sudo make install
   - sudo apt install libopenmpi-dev -y
   - export CPLUS_INCLUDE_PATH=/usr/include/gdal
   - export C_INCLUDE_PATH=/usr/include/gdal
