@@ -49,7 +49,7 @@ script:
 
 
 after_success:
-  - codecov
+  - python -m codecov
 
 jobs:
   include:
