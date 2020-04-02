@@ -78,7 +78,3 @@ notifications:
       - $SHEECE_EMAIL
     on_success: never
     on_failure: always
-
-cache:
-  directories:
-    - $HOME/.cache/pip
