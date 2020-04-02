@@ -20,6 +20,9 @@ matrix:
     - python: 3.6
     - python: 3.7
 
+# allow gui output
+services:
+  - xvfb
 
 before_install:
   - export DEBIAN_FRONTEND=noninteractive
