@@ -25,6 +25,10 @@ before_install:
   - export C_INCLUDE_PATH=/usr/include/gdal
   - export LC_ALL=C.UTF-8
   - export LANG=C.UTF-8
+  - python --version
+  - pip install -U pip
+  - pip install -U pytest
+  - pip install codecov
 
 install:
   - sudo sh -c "echo '/usr/local/lib' >> /etc/ld.so.conf"
@@ -34,6 +38,8 @@ install:
   - pip uninstall GDAL -y
   - pip install GDAL==$(gdal-config --version)
   - chmod 444 tests/test_data/small_test/tif/geo_070709-070813_unw.tif  # makes the file readonly, used in a test
+  - pip install ".[test]" . # install package + test dependencies
+
 
 # command to run tests
 script:
