@@ -46,7 +46,7 @@ install:
 script:
   - cd /home/travis/build/GeoscienceAustralia/PyRate
   - python -m pytest --version
-  - python -m pytest /home/travis/build/GeoscienceAustralia/PyRate/tests/
+  - python -m pytest tests/
 
 
 after_success:
