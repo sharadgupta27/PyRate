@@ -76,6 +76,8 @@ class UpdateSamplePaths(install):
 
     def remove_place_holder(self, file_path):
         root = "/home/travis/build/GeoscienceAustralia/PyRate"
+        if not os.path.isdir(root):
+            root = os.path.dirname(os.path.abspath(__file__))
         file_path = os.path.join(root, file_path)
         root = os.path.dirname(root).replace("\\","/")
         lines = []
