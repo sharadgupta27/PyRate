@@ -18,10 +18,8 @@ before_install:
   - export DEBIAN_FRONTEND=noninteractive
   - sudo apt install sqlite3 gcc wget libssl-dev zlib1g-dev libncurses5-dev libncursesw5-dev libreadline-dev libsqlite3-dev libgdbm-dev libdb5.3-dev libbz2-dev libexpat1-dev liblzma-dev libffi-dev -y
   - sudo apt-get install jasper -y
-#  - cd $HOME && wget https://download.osgeo.org/proj/proj-6.2.1.tar.gz && tar -zxf proj-6.2.1.tar.gz && cd proj-6.2.1 && ./configure && nproc | xargs -I % make -j% && sudo make install
-#  - cd $HOME && wget https://download.osgeo.org/gdal/3.0.2/gdal-3.0.2.tar.gz && tar -zxf gdal-3.0.2.tar.gz && cd gdal-3.0.2 && ./configure && nproc | xargs -I % make -j% && sudo make install
-  - cd $HOME/proj-6.2.1 && ./configure && make -j4 && sudo make install
-  - cd $HOME/gdal-3.0.2 && ./configure && make -j4 && sudo make install
+  - cd $HOME && wget https://download.osgeo.org/proj/proj-6.2.1.tar.gz && tar -zxf proj-6.2.1.tar.gz && cd proj-6.2.1 && ./configure && nproc | xargs -I % make -j% && sudo make install
+  - cd $HOME && wget https://download.osgeo.org/gdal/3.0.2/gdal-3.0.2.tar.gz && tar -zxf gdal-3.0.2.tar.gz && cd gdal-3.0.2 && ./configure && nproc | xargs -I % make -j% && sudo make install
   - sudo apt install libopenmpi-dev -y
   - export CPLUS_INCLUDE_PATH=/usr/include/gdal
   - export C_INCLUDE_PATH=/usr/include/gdal
@@ -76,6 +74,3 @@ notifications:
 cache:
   directories:
     - $HOME/.cache/pip
-    - $HOME/proj-6.2.1
-    - $HOME/gdal-3.0.2
-    - $HOME/openmpi-2.1.6
