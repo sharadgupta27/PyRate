@@ -31,8 +31,8 @@ python:
 
 
 install:
-  - ls
-  - pwd
+  - echo $ls
+  - echo $pwd
   - python setup.py -q install
   - pip uninstall GDAL -y
   - pip install GDAL==$(gdal-config --version)
