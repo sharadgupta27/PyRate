@@ -9,7 +9,6 @@ os: linux
 dist: bionic # Ubuntu 18.04
 
 language: python
-cache: pip
 
 python:
   - "3.6"
@@ -32,7 +31,7 @@ before_install:
 
 
 install:
-  - python setup.py -q install
+  - cd ~/PyRate && python setup.py -q install
   - pip uninstall GDAL -y
   - pip install GDAL==$(gdal-config --version)
   - chmod 444 tests/test_data/small_test/tif/geo_070709-070813_unw.tif  # makes the file readonly, used in a test
@@ -70,3 +69,10 @@ notifications:
       - $SHEECE_EMAIL
     on_success: never
     on_failure: always
+
+cache:
+  directories:
+    - ~/.cache/pip
+    - gdal-3.0.2
+    - openmpi-2.1.6
+    - proj-6.2.1
