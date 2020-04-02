@@ -38,7 +38,9 @@ install:
 # command to run tests
 script:
   - cd /home/travis/build/GeoscienceAustralia/PyRate
-  - pytest --cov-report term-missing:skip-covered --cov=pyrate tests/
+  - python -m pytest --version
+  - python -m pytest /home/travis/build/GeoscienceAustralia/PyRate/tests/
+
 
 after_success:
   - codecov
