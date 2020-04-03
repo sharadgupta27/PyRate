@@ -52,8 +52,7 @@ from core.logger import pyratelogger as log
 
 PYRATEPATH = "/home/travis/build/GeoscienceAustralia/PyRate"
 if not os.path.isdir(PYRATEPATH):
-    PYRATEPATH = os.path.dirname(os.path.abspath(__file__))
-
+    PYRATEPATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPDIR = tempfile.gettempdir()
 
 BASE_TEST = join(PYRATEPATH, "tests", "test_data")
